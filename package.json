@@ -1,0 +1,19 @@
+{
+  "name": "hack_exchange",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "stansh",
+  "license": "ISC",
+  "dependencies": {
+    "awesome": "0.0.7",
+    "bootstrap": "^4.5.0",
+    "font": "0.0.4",
+    "font-awesome": "^4.7.0",
+    "jquery": "^1.9.1",
+    "popper.js": "^1.16.1"
+  }
+}
