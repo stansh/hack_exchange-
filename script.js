@@ -1,10 +1,5 @@
 
 
-
-
-
-
-
 const loadButtons = () => 
     
     {
@@ -25,10 +20,9 @@ const loadButtons = () =>
                 el.name = key;
                 el.value = value;
                 el.setAttribute('class', 'btn btn-info');
-                
                 el.addEventListener('click', convert);
                 BtnDiv.appendChild(el);
-                /* console.log(el) */
+                
                 }         
             })
         }
@@ -39,7 +33,7 @@ window.onload = loadButtons();
 
 const convert = (e) => {
     let clickedUnit = e.target;
-    console.log(clickedUnit.value);
+    
     let unitValue = clickedUnit.value;
     let fromAmount = document.querySelector('#fromAmount').value;
     let error = document.querySelector('#error');
@@ -67,7 +61,6 @@ const changeView = () => {
     .then(res =>res.json())
     .then(res=> {
         const units = Object.entries(res.rates);
-        console.log(units);
         const container = document.querySelector('.container');
         const BtnDiv = document.createElement('div');
         BtnDiv.setAttribute('class', 'row');
@@ -83,7 +76,7 @@ const changeView = () => {
             
             el.addEventListener('click', convertToUSD);
             BtnDiv.appendChild(el);
-            /* console.log(el) */
+           
             }         
     })
 }
