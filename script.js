@@ -56,7 +56,7 @@ const changeView = () => {
     const row = document.querySelector('.row');
     row.innerHTML='';
     let fromAmount = document.querySelector('#fromAmount');
-    fromAmount.placeholder = 'Enter amount';
+    fromAmount.placeholder = 'Enter foreign currency amount';
     const changeView = document.querySelector('#changeView');
     changeView.setAttribute('onclick','location.reload()')
     const note = document.createElement('h4');
