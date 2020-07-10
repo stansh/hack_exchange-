@@ -1,5 +1,8 @@
 
-[{
+
+export const currencyInfo = 
+
+{
 	"USD": {
 		"symbol": "$",
 		"name": "US Dollar",
@@ -1072,4 +1075,9 @@
 		"name_plural": "Zimbabwean Dollar"
 	}
 
-}]
+}
+
+
+
+ 
+

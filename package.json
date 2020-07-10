@@ -1,7 +1,6 @@
 {
   "name": "hack_exchange",
   "version": "1.0.0",
-  "description": "",
   "main": "script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +14,15 @@
     "font-awesome": "^4.7.0",
     "jquery": "^1.9.1",
     "popper.js": "^1.16.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stansh/hack_exchange-.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stansh/hack_exchange-/issues"
+  },
+  "homepage": "https://github.com/stansh/hack_exchange-#readme",
+  "description": ""
 }

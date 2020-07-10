@@ -1,3 +1,5 @@
+import  {currencyInfo} from './currencyInfo.js';
+/* console.log(currencyInfo.CAD.name); */
 
 
 
@@ -10,7 +12,7 @@ const loadButtons = () =>
         .then(res =>res.json())
         .then(res=> {
             const units = Object.entries(res.rates);
-            console.log(units);
+            /* console.log(units); */
             const container = document.querySelector('.container');
             const BtnDiv = document.createElement('div');
             BtnDiv.setAttribute('class', 'row');
@@ -24,6 +26,7 @@ const loadButtons = () =>
                 el.value = value;
                 el.setAttribute('class', 'btn btn-info');
                 el.addEventListener('click', convert);
+                el.addEventListener('mouseover', showCurrencyInfo);
                 BtnDiv.appendChild(el);
                 
                 }         
@@ -32,6 +35,37 @@ const loadButtons = () =>
     
 window.onload = loadButtons();
 
+const showCurrencyInfo =(e) => {
+    let hoverOverBtn = e.target;
+    let currencyObjects = Object.values(currencyInfo)
+    
+    /* console.log(currencyObjects) */
+    currencyObjects.map(obj => {
+        obj.code === hoverOverBtn.name ? console.log(obj.name) : ''
+        document.querySelector('#currencyInfo').innerHTML = obj.code
+        
+
+    }) 
+    
+       
+}    
+    
+
+
+    
+   
+    /* for (const value in currencyObjects){
+        if (value.code === hoverOverBtn.name) {
+            console.log(value.code)
+        }
+    } */
+   
+        /* document.querySelector('#currencyInfo').innerHTML = currencyInfo.[key].name; */
+      
+    
+    
+    /* console.log(`code:${hoverOverBtn.name} and the rate is ${hoverOverBtn.value}`) */
+    /* document.querySelector('#currencyInfo').innerHTML = hoverOverBtn.value; */
 
 
 const convert = (e) => {
