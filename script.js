@@ -1,9 +1,4 @@
 import  {currencyInfo} from './currencyInfo.js';
-/* console.log(currencyInfo.CAD.name); */
-
-
-
-
 
 const loadButtons = () => 
     
@@ -37,35 +32,15 @@ window.onload = loadButtons();
 
 const showCurrencyInfo =(e) => {
     let hoverOverBtn = e.target;
-    let currencyObjects = Object.values(currencyInfo)
-    
-    /* console.log(currencyObjects) */
+    let currencyObjects = Object.values(currencyInfo);
     currencyObjects.map(obj => {
-        obj.code === hoverOverBtn.name ? console.log(obj.name) : ''
-        document.querySelector('#currencyInfo').innerHTML = obj.code
+        obj.code == hoverOverBtn.name ? document.querySelector('#currencyInfo').innerHTML = obj.name : ''
         
-
-    }) 
+    })  
     
        
 }    
     
-
-
-    
-   
-    /* for (const value in currencyObjects){
-        if (value.code === hoverOverBtn.name) {
-            console.log(value.code)
-        }
-    } */
-   
-        /* document.querySelector('#currencyInfo').innerHTML = currencyInfo.[key].name; */
-      
-    
-    
-    /* console.log(`code:${hoverOverBtn.name} and the rate is ${hoverOverBtn.value}`) */
-    /* document.querySelector('#currencyInfo').innerHTML = hoverOverBtn.value; */
 
 
 const convert = (e) => {
@@ -112,11 +87,13 @@ const changeView = () => {
             el.setAttribute('class', 'btn btn-info');
             
             el.addEventListener('click', convertToUSD);
+            /* el.addEventListener('mouseover', showCurrencyInfo); */
             BtnDiv.appendChild(el);
-           
             }         
     })
 }
+
+
 
 
 const convertToUSD = (e) => {
@@ -125,12 +102,55 @@ const convertToUSD = (e) => {
     let unitValue = clickedUnit.value;
     let fromAmount = document.querySelector('#fromAmount').value;
     let error = document.querySelector('#error');
-    
     if (!isNaN(fromAmount)) {
        document.querySelector('#toAmount').value = (fromAmount / unitValue).toFixed(2);
     } else {
        error.innerHTML = 'Please enter a numeric value.';
-    }
-    
+    } 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
