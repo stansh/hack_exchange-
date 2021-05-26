@@ -3,24 +3,23 @@
 
 .btn {
     margin: 5px;
+    
 }
 
-.container {
-    background-color: rgb(255, 255, 255);
-}
 
 h1 {
     font-family: 'Bebas Neue', cursive;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    animation: bounce;
+    letter-spacing: 5px;
+    animation: fadeInDown; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s;
     
-
+    
 }
 
 h3,h4 {
     font-family: 'Overpass', sans-serif;
-    
+   
    
 
 }
@@ -29,8 +28,9 @@ h3,h4 {
     margin-top: 10rem;
     margin-bottom: 10rem;
     padding: 5rem;
-    background: rgba(255, 255, 255, 0.8)
-    
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 5px;
+    box-shadow: 5px 5px 20px rgb(136, 136, 136);
 }
 
 
@@ -42,15 +42,12 @@ body{
     background-image: url('images/dollar.jpg');
 }
 
-/* .col-md-3  {
-    text-align: center;
-    font-weight: bold;
-    background-color: grey;
-    
-}
- */
-input, #changeView {
+input {
     height: 4rem;
+    border-width: 1px;
+    border-color: #17a2b8;
+    border-radius: 5px;
+    size: 4rem;
 }
 
 

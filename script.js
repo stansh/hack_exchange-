@@ -20,7 +20,8 @@ const loadButtons = () =>
                 el.innerHTML = key;
                 el.name = key;
                 el.value = value;
-                el.setAttribute('class', 'btn btn-info ');
+                el.setAttribute('class', 'btn');
+				el.classList.add('btn-md', 'btn-info','animate__animated' ,'animate__zoomIn')
                 el.addEventListener('click', convert);
                 el.addEventListener('mouseover', showCurrencyInfo);
                 BtnDiv.appendChild(el);
@@ -54,6 +55,7 @@ const convert = (e) => {
     
     if (!isNaN(fromAmount)) {
        document.querySelector('#toAmount').value = (fromAmount * unitValue).toFixed(2);
+	   error.innerHTML ="";
     } else {
        error.innerHTML = 'Please enter a numeric value.';
     }
@@ -89,8 +91,8 @@ const changeView = () => {
             el.innerHTML = key;
             el.name = key;
             el.value = value;
-            el.setAttribute('class', 'btn btn-info');
-            
+            el.setAttribute('class', 'btn');
+            el.classList.add('btn-md', 'btn-info','animate__animated' ,'animate__zoomIn')
             el.addEventListener('click', convertToUSD);
             el.addEventListener('mouseover', showCurrencyInfo);
             BtnDiv.appendChild(el);

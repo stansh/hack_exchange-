@@ -8,7 +8,6 @@
   "author": "stansh",
   "license": "ISC",
   "dependencies": {
-    "animate.css": "^4.1.1",
     "awesome": "0.0.7",
     "bootstrap": "^4.5.0",
     "font": "0.0.4",
