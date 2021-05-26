@@ -1,8 +1,9 @@
 
 
-
+var view = true;
 
 const loadButtons = () => 
+    
     
     {
         fetch('https://v6.exchangerate-api.com/v6/05b4701c0b67be6233177c93/latest/USD')
@@ -12,13 +13,14 @@ const loadButtons = () =>
             const container = document.querySelector('.container');
             const BtnDiv = document.createElement('div');
             BtnDiv.setAttribute('class', 'row');
+			BtnDiv.setAttribute('id', 'BtnDiv');
             container.appendChild(BtnDiv);
             
             for (const [key,value] of units) 
                 {
                 let el = document.createElement('button');
 				const currencyObjects = Object.values(currencyInfo);
-    			currencyObjects.map(obj => {obj.cc == key ? el.innerHTML = obj.name : null	})	
+    			currencyObjects.map(obj => {obj.cc == key ? el.innerHTML =  obj.name : null	})	
                 el.name = key;
                 el.value = value; 
                 el.setAttribute('class', 'btn');
@@ -29,7 +31,10 @@ const loadButtons = () =>
                  
                 }         
             })
+
         }
+
+
     
 window.onload = loadButtons();
 
@@ -57,15 +62,43 @@ const convert = (e) => {
     if (!isNaN(fromAmount)) {
        document.querySelector('#toAmount').value = (fromAmount * unitValue).toFixed(2);
 	   error.innerHTML ="";
-    } else {
-       error.innerHTML = 'Please enter a numeric value.';
-    }
-    
+    } 
 }
 
 
 
- const changeView = () => {
+const changeView = () => {
+      view = !view
+	  let buttons = document.querySelectorAll(".btn-info")
+	
+    buttons.forEach(button=>{
+		if (view === true ) {
+			button.removeEventListener('click', convert);
+			button.addEventListener('click', convertToUSD);
+			document.querySelector('#fromAmount').value = '';
+			document.querySelector('#fromAmount').placeholder = 'Enter foreign currency amount';
+		} else {
+			button.removeEventListener('click', convertToUSD)
+            button.addEventListener('click', convert);
+			document.querySelector('#fromAmount').value = '';
+            document.querySelector('#fromAmount').placeholder = 'Enter USD amount';
+		}
+
+	  }) 
+      
+	}
+
+	const convertToUSD = (e) => {
+		let clickedUnit = e.target;
+		let unitValue = clickedUnit.value;
+		let fromAmount = document.querySelector('#fromAmount').value;
+		if (!isNaN(fromAmount)) {
+		   document.querySelector('#toAmount').value = (fromAmount / unitValue).toFixed(2);
+		} 	
+
+ /* const changeView = () => {
+	
+	
     
     const row = document.querySelector('.row');
     row.innerHTML='';
@@ -73,10 +106,6 @@ const convert = (e) => {
     fromAmount.placeholder = 'Enter foreign currency amount';
     const changeView = document.querySelector('#changeView');
     changeView.setAttribute('onclick','location.reload()')
-    const note = document.createElement('h4');
-    note.innerHTML ='Enter amount and choose currency to convert from'
-    note.setAttribute('class','alert')
-    row.appendChild(note)
     fetch('https://v6.exchangerate-api.com/v6/05b4701c0b67be6233177c93/latest/USD')
     .then(res =>res.json())
     .then(res=> {
@@ -84,6 +113,7 @@ const convert = (e) => {
         const container = document.querySelector('.container');
         const BtnDiv = document.createElement('div');
         BtnDiv.setAttribute('class', 'row');
+		
         container.appendChild(BtnDiv);
         
         for (const [key,value] of units) 
@@ -100,21 +130,12 @@ const convert = (e) => {
             el.innerHTML !== '' ?  BtnDiv.appendChild(el) : null;
             }         
     })
-}
+} */
 
 
 
 
-const convertToUSD = (e) => {
-    let clickedUnit = e.target;
-    let unitValue = clickedUnit.value;
-    let fromAmount = document.querySelector('#fromAmount').value;
-    let error = document.querySelector('#error');
-    if (!isNaN(fromAmount)) {
-       document.querySelector('#toAmount').value = (fromAmount / unitValue).toFixed(2);
-    } else {
-       error.innerHTML = 'Please enter a numeric value.';
-    } 
+
 }
 
 
