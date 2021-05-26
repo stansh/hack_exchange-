@@ -1,11 +1,14 @@
 
+
+
+
 const loadButtons = () => 
     
     {
-        fetch('https://api.exchangerate-api.com/v4/latest/USD')
+        fetch('https://v6.exchangerate-api.com/v6/05b4701c0b67be6233177c93/latest/USD')
         .then(res =>res.json())
         .then(res=> {
-            const units = Object.entries(res.rates);
+            const units = Object.entries(res.conversion_rates);
             const container = document.querySelector('.container');
             const BtnDiv = document.createElement('div');
             BtnDiv.setAttribute('class', 'row');
@@ -71,10 +74,10 @@ const changeView = () => {
     note.innerHTML ='Enter amount and choose currency to convert from'
     note.setAttribute('class','alert')
     row.appendChild(note)
-    fetch('https://api.exchangerate-api.com/v4/latest/USD')
+    fetch('https://v6.exchangerate-api.com/v6/05b4701c0b67be6233177c93/latest/USD')
     .then(res =>res.json())
     .then(res=> {
-        const units = Object.entries(res.rates);
+        const units = Object.entries(res.conversion_rates);
         const container = document.querySelector('.container');
         const BtnDiv = document.createElement('div');
         BtnDiv.setAttribute('class', 'row');
@@ -115,7 +118,7 @@ const convertToUSD = (e) => {
 
 
 
-const currencyInfo = 
+ const currencyInfo = 
 
 {
 	"USD": {
@@ -1189,7 +1192,6 @@ const currencyInfo =
 		"code": "ZWL",
 		"name_plural": "Zimbabwean Dollar"
 	}
-
 }
 
 
