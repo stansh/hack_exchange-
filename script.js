@@ -20,7 +20,7 @@ const loadButtons = () =>
                 el.innerHTML = key;
                 el.name = key;
                 el.value = value;
-                el.setAttribute('class', 'btn btn-info');
+                el.setAttribute('class', 'btn btn-info ');
                 el.addEventListener('click', convert);
                 el.addEventListener('mouseover', showCurrencyInfo);
                 BtnDiv.appendChild(el);

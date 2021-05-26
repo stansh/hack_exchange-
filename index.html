@@ -11,9 +11,11 @@
 <body >
     <div class = 'container mb-10'>
         <h1 class = 'py-3'>Currency Converter</h1>
-        <input id = 'fromAmount'placeholder = 'Enter USD amount' class = 'col-3'>
-        <input id = 'toAmount' class = 'col-3'>
-        <button class = 'btn btn-outline-info ' onclick='changeView()' id='changeView' ><i class="fa fa-exchange" aria-hidden="true"></i></button>
+        <div class = 'raw'>
+            <input id = 'fromAmount' placeholder = 'Enter USD amount' class = 'col-3'>
+            <input id = 'toAmount' class = 'col-3'>
+            <button class = 'btn btn-outline-info ' onclick='changeView()' id='changeView' ><i class="fa fa-exchange" aria-hidden="true"></i></button>
+        </div>    
         <p id = 'error'></p>
         
         <div class = 'col-md mx-auto text-dark'>
@@ -21,7 +23,7 @@
         </div>
         
     </div> 
-    <div class = 'col-md-3 mx-auto'>
+    <div class = 'text-center'>
         <a href="https://www.exchangerate-api.com" class="text-white small"  >Currency Conversion by ExchangeRate-API.com</a>
     </div> 
     <script src = 'script.js'></script>

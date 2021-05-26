@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Overpass&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 .btn {
@@ -13,12 +13,13 @@ h1 {
     font-family: 'Bebas Neue', cursive;
     text-transform: uppercase;
     letter-spacing: 2px;
+    animation: bounce;
     
 
 }
 
 h3,h4 {
-    font-family: 'Bebas Neue', cursive;
+    font-family: 'Overpass', sans-serif;
     
    
 
@@ -28,9 +29,6 @@ h3,h4 {
     margin-top: 10rem;
     margin-bottom: 10rem;
     padding: 5rem;
-    border-color: rgb(12, 199, 43);
-    
-    border-width: thick;
     background: rgba(255, 255, 255, 0.8)
     
 }
@@ -44,9 +42,15 @@ body{
     background-image: url('images/dollar.jpg');
 }
 
-.col-md-3  {
+/* .col-md-3  {
     text-align: center;
     font-weight: bold;
     background-color: grey;
     
 }
+ */
+input, #changeView {
+    height: 4rem;
+}
+
+
