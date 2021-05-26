@@ -48,6 +48,13 @@ input {
     border-color: #17a2b8;
     border-radius: 5px;
     size: 4rem;
+    
 }
 
+.btn-info{
+    width:30%;
+    text-transform: uppercase;
+    
+    
 
+}
