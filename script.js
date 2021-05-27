@@ -10,6 +10,8 @@ const loadButtons = () =>
         .then(res =>res.json())
         .then(res=> {
             const units = Object.entries(res.conversion_rates);
+			const updateTime = document.createTextNode('Rates updated:  ' + res.time_last_update_utc);
+			document.querySelector('#updateTime').appendChild(updateTime)
             const container = document.querySelector('.container');
             const BtnDiv = document.createElement('div');
             BtnDiv.setAttribute('class', 'row');
@@ -68,24 +70,23 @@ const convert = (e) => {
 
 
 const changeView = () => {
-      view = !view
 	  let buttons = document.querySelectorAll(".btn-info")
 	
     buttons.forEach(button=>{
-		if (view === true ) {
+		if (view == true) {
 			button.removeEventListener('click', convert);
 			button.addEventListener('click', convertToUSD);
 			document.querySelector('#fromAmount').value = '';
 			document.querySelector('#fromAmount').placeholder = 'Enter foreign currency amount';
 		} else {
 			button.removeEventListener('click', convertToUSD)
-            button.addEventListener('click', convert);
+            button.addEventListener('click', convert); 
 			document.querySelector('#fromAmount').value = '';
             document.querySelector('#fromAmount').placeholder = 'Enter USD amount';
 		}
-
+        
 	  }) 
-      
+	  view = !view
 	}
 
 	const convertToUSD = (e) => {
@@ -96,43 +97,7 @@ const changeView = () => {
 		   document.querySelector('#toAmount').value = (fromAmount / unitValue).toFixed(2);
 		} 	
 
- /* const changeView = () => {
-	
-	
-    
-    const row = document.querySelector('.row');
-    row.innerHTML='';
-    let fromAmount = document.querySelector('#fromAmount');
-    fromAmount.placeholder = 'Enter foreign currency amount';
-    const changeView = document.querySelector('#changeView');
-    changeView.setAttribute('onclick','location.reload()')
-    fetch('https://v6.exchangerate-api.com/v6/05b4701c0b67be6233177c93/latest/USD')
-    .then(res =>res.json())
-    .then(res=> {
-        const units = Object.entries(res.conversion_rates);
-        const container = document.querySelector('.container');
-        const BtnDiv = document.createElement('div');
-        BtnDiv.setAttribute('class', 'row');
-		
-        container.appendChild(BtnDiv);
-        
-        for (const [key,value] of units) 
-            {
-            let el = document.createElement('button');
-            const currencyObjects = Object.values(currencyInfo);
-    		currencyObjects.map(obj => {obj.cc == key ? el.innerHTML = obj.name : null	})	
-            el.name = key;
-            el.value = value;
-            el.setAttribute('class', 'btn');
-            el.classList.add('btn-md', 'btn-info','animate__animated' ,'animate__fadeIn')
-            el.addEventListener('click', convertToUSD);
-            el.addEventListener('mouseover', showCurrencyInfo);
-            el.innerHTML !== '' ?  BtnDiv.appendChild(el) : null;
-            }         
-    })
-} */
-
-
+ 
 
 
 

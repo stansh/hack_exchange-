@@ -14,15 +14,14 @@
 <body >
     <div class = 'container'>
 
-        <div class = 'row  text-center' id='info' >
+        <div class = 'sticky-top' id='info' style=" background: #ebf3f5e0;border-radius: 5px;" >
             <h1 class = 'pb-3'>Currency Converter</h1>
+            <p id='updateTime'> </p>
             <input type='number' id = 'fromAmount' placeholder = 'Enter USD amount' class = 'col-lg-3' > 
             <input id = 'toAmount' class = 'col-lg-3'>
             <button class = 'btn btn-lg btn-outline-info' onclick = 'changeView()' id='changeView' ><i class="fa fa-exchange" aria-hidden="true"></i></button>
             <p id = 'error'></p>
-            <div class = 'col-md mx-auto text-dark'>
-               <h3 id = 'currencyInfo'></h3>
-            </div>
+            <h3 class = '' id = 'currencyInfo'></h3>
         </div>    
     </div> 
     <div class = 'text-center mb-5'>
